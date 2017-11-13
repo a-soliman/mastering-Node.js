@@ -1,4 +1,5 @@
 exports.location = {
-	filename : () =>  __filename
+	filename : () =>  __filename,
+	dirname: () => __dirname
 
 }
