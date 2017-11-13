@@ -12,6 +12,12 @@ console.log('Dirname: ', location.location.dirname());
 //buffer 
 let str = require('./buffer').buffer.str;
 console.log(str);
-let buffer = new Buffer(str, 'utf-8');
 
-console.log('BUFFER: ', buffer)
+
+// from str to buffer.
+let buffer = new Buffer(str, 'utf-8');
+console.log('BUFFER: ', buffer);
+
+// from buffer to str.
+let roundTrip = buffer.toString('utf-8')
+console.log(roundTrip)
