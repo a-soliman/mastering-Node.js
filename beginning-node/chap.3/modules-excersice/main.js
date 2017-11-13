@@ -33,3 +33,22 @@ const complatePath = '/foo/bar/path.html';
 console.log('Dirname: ', path.dirname(complatePath));
 console.log('Basename: ', path.basename(complatePath));
 console.log('Extname: ', path.extname(complatePath));
+
+// 2. fs
+const fs = require('fs');
+
+// write 
+fs.writeFileSync('fs/test.txt', 'Hello fs!');
+
+// read
+console.log(fs.readFileSync('fs/test.txt').toString())
+
+// delete
+fs.unlink('./fs/test.txt', function(err) {
+	if(err) {
+		console.log(err);
+	}
+	else {
+		console.log('text.txt successfully deleted!')
+	}
+})
