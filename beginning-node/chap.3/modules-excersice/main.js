@@ -51,4 +51,5 @@ fs.unlink('./fs/test.txt', function(err) {
 	else {
 		console.log('text.txt successfully deleted!')
 	}
-})
+});
+
