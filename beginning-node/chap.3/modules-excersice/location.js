@@ -1,5 +1,4 @@
 exports.location = {
-	filename: function() {
-		return(__filename)
-	}
+	filename : () =>  __filename
+
 }
