@@ -26,3 +26,10 @@ console.log(roundTrip)
 // 1. path module
 const path = require('path');
 console.log(path.normalize('/foo//bar/..'))
+
+console.log(path.join('foo', '/bar', 'bas'));
+
+const complatePath = '/foo/bar/path.html';
+console.log('Dirname: ', path.dirname(complatePath));
+console.log('Basename: ', path.basename(complatePath));
+console.log('Extname: ', path.extname(complatePath));
