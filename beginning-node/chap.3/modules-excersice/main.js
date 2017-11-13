@@ -21,3 +21,8 @@ console.log('BUFFER: ', buffer);
 // from buffer to str.
 let roundTrip = buffer.toString('utf-8')
 console.log(roundTrip)
+
+// === CORE MODULES ===
+// 1. path module
+const path = require('path');
+console.log(path.normalize('/foo//bar/..'))
