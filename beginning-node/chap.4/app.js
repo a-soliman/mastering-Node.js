@@ -1,3 +1,14 @@
+// optimist
+
+const argv = require('optimist').argv;
+delete argv['$0'];
+console.log(argv);
+
+
+
+//=============================
+
+/*
 const _ = require('underscore');
 
 console.log(_)
@@ -20,7 +31,8 @@ let odds = _.reject(arr2, (num) => {
 })
 
 console.log(odds)
-
+*/
+//=============================
 /*
 // JSON
 let foo = {
