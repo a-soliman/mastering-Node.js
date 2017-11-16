@@ -1,4 +1,12 @@
+// colors
+const colors = require('colors');
+console.log('hello'.red);
+console.log('happy stuff'.rainbow)
 
+
+//=============================
+
+/*
 
 // MOMENT
 const moment = require('moment');
@@ -11,6 +19,8 @@ console.log('Moment : ', wrapped);
 // from moment to date
 let date = wrapped.toDate();
 console.log('DATE : ', date);
+
+*/
 
 //=============================
 

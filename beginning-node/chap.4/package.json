@@ -9,6 +9,7 @@
   "author": "Ahmed soliman",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.1.2",
     "moment": "^2.19.2",
     "underscore": "^1.8.3"
   }
