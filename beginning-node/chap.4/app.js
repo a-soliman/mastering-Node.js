@@ -1,10 +1,34 @@
+// Date and moment
+let now = new Date();
+
+console.log(now);
+
+let milliseconds = now.getMilliseconds();
+let seconds = now.getSeconds();
+let minutes = now.getMinutes();
+let hours = now.getHours();
+let date = now.getDate();
+let month =  now.getMonth();
+let year = now.getFullYear();
+
+let day = now.getDay();
+
+// detailed constructor for the date;
+let dateCopy = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+console.log(dateCopy)
+
+
+//=============================
+
+/*
+
 // optimist
 
 const argv = require('optimist').argv;
 delete argv['$0'];
 console.log(argv);
 
-
+*/
 
 //=============================
 
