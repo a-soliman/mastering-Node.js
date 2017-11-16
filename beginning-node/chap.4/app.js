@@ -16,7 +16,7 @@ console.log(results)
 var arr2 = [1,2,3,4,5,6,7];
 
 let odds = _.reject(arr2, (num) => {
-	return num % 2 ==0;
+	return num % 2 == 0;
 })
 
 console.log(odds)
