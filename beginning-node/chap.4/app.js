@@ -1,3 +1,21 @@
+
+
+// MOMENT
+const moment = require('moment');
+
+// from date to moment
+let wrapped = moment(new Date())
+console.log('Moment : ', wrapped);
+
+
+// from moment to date
+let date = wrapped.toDate();
+console.log('DATE : ', date);
+
+//=============================
+
+/*
+
 // Date and moment
 let now = new Date();
 
@@ -16,6 +34,8 @@ let day = now.getDay();
 // detailed constructor for the date;
 let dateCopy = new Date(year, month, day, hours, minutes, seconds, milliseconds);
 console.log(dateCopy)
+
+*/
 
 
 //=============================
