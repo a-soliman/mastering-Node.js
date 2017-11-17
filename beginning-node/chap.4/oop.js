@@ -6,6 +6,13 @@ Animal.prototype.walk = function(dest) {
 	console.log(`${this.name} is walking to ${dest}`);
 };
 
-let animal = new Animal('elephant');
+function Bird(name) {
+	this.name = name;
+};
 
-animal.walk('San Fran.')
+
+Bird.prototype = Animal.prototype;
+
+let bird = new Bird('some bird');
+
+bird.walk('some where')
