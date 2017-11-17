@@ -23,3 +23,33 @@ let someOne = new SportsMan('someOne');
 
 someOne.walk('the city.')
 someOne.run(55);
+
+// ===
+// object.create
+
+let foo = {};
+
+let bar = Object.create(foo);
+
+console.log(bar.__proto__ == foo)
+
+
+// same teq.
+
+function Animal (name) {
+	this.name = name;
+};
+
+Animal.prototype.walk = function(dest) {
+	console.log(this.name + ' is walking to ' + dest);
+};
+
+function Bird(name) {
+	this.name = name
+}
+
+Bird.prototype = Object.create(Animal.prototype);
+
+let bird = new Bird('bird');
+
+bird.walk('somewhere')
