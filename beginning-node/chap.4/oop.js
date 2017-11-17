@@ -11,8 +11,21 @@ function Bird(name) {
 };
 
 
-Bird.prototype = Animal.prototype;
 
-let bird = new Bird('some bird');
 
 bird.walk('some where')
+
+// .call 
+
+let foo = {};
+let bar = {};
+
+function func(val) {
+	this.val = val;
+};
+
+func.call(foo, 123);
+func.call(bar, 456);
+
+console.log(foo);
+console.log(bar);
