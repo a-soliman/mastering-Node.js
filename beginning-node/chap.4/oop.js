@@ -6,15 +6,7 @@ Animal.prototype.walk = function(dest) {
 	console.log(`${this.name} is walking to ${dest}`);
 };
 
-function Bird(name) {
-	this.name = name;
-};
-
-
-
-
-bird.walk('some where')
-
+// ======
 // .call 
 
 let foo = {};
@@ -29,3 +21,18 @@ func.call(bar, 456);
 
 console.log(foo);
 console.log(bar);
+
+
+// ======
+
+function Bird(name) {
+	Animal.call(this, name);
+}
+
+Bird.prototype.__proto__ = Animal.prototype;
+Bird.prototype.fly = function(dest) {
+	console.log(this.name + ' is flying to ' + dest);
+};
+
+let bird = new Bird('some bird');
+
