@@ -1,38 +1,25 @@
-function Animal(name) {
+//UTIL inhiritnce
+const inherits = require('util').inherits;
+
+function Human(name) {
 	this.name = name;
 };
 
-Animal.prototype.walk = function(dest) {
-	console.log(`${this.name} is walking to ${dest}`);
+Human.prototype.walk = function(dest) {
+	console.log(this.name + ' is walking to ' + dest);
 };
 
-// ======
-// .call 
-
-let foo = {};
-let bar = {};
-
-function func(val) {
-	this.val = val;
+function SportsMan(name) {
+	Human.call(this, name);
 };
 
-func.call(foo, 123);
-func.call(bar, 456);
+inherits(SportsMan, Human);
 
-console.log(foo);
-console.log(bar);
-
-
-// ======
-
-function Bird(name) {
-	Animal.call(this, name);
-}
-
-Bird.prototype.__proto__ = Animal.prototype;
-Bird.prototype.fly = function(dest) {
-	console.log(this.name + ' is flying to ' + dest);
+SportsMan.prototype.run = function(speed) {
+	console.log(this.name + ' is running at speed of ' + speed);
 };
 
-let bird = new Bird('some bird');
+let someOne = new SportsMan('someOne');
 
+someOne.walk('the city.')
+someOne.run(55);
