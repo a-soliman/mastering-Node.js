@@ -1,11 +1,12 @@
 const http = require('http');
 
-let server = http.createServer((request, response) => {
-	console.log('request starting...');
+let server = http.createServer((req, res) => {
+	console.log('requesting headers...');
+	console.log(req.headers);
 
 	// respond
-	response.write('hello client!');
-	response.end();
+	res.write('hello client!');
+	res.end();
 })
 
 server.listen(3000);
