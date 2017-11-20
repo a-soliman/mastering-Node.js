@@ -1,6 +1,7 @@
-const http 	= require('http');
-const fs	= require('fs');
-const path	= require('path');
+const connect 	= require('connect');
+const http 		= require('http');
+const fs		= require('fs');
+const path		= require('path');
 
 
 function send404(response) {
