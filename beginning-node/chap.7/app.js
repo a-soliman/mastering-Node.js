@@ -1,11 +1,17 @@
 const express		= require('express');
 const bodyParser	= require('body-parser');
+const cookieParser	= require('cookie-parser');
 
 let app = express()
-	.use((req, res) => {
-		res.cookie({'name': 'foo'});
-		res.end(req.cookie);
+	.use(cookieParser())
+	.use('/toggle', (req, res) => {
+		if(req.cookies.name) {
+			res.clearCookie('name');
+			res.end('name cookie cleared! was: ' + req.cookies.name);
+		}
+		else {
+			res.cookie('name', 'foo')
+			res.end('name cookie set!');
+		}
 	})
-	.listen(3001, () => {
-		console.log('Server is running at 3000.')
-	})
+	.listen(3000)
