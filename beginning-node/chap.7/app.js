@@ -5,13 +5,16 @@ const cookieParser	= require('cookie-parser');
 let app = express()
 	.use(cookieParser())
 	.use('/toggle', (req, res) => {
-		if(req.cookies.name) {
-			res.clearCookie('name');
-			res.end('name cookie cleared! was: ' + req.cookies.name);
+		console.log(req.cookies);
+		if(req.cookies.message) {
+			res.clearCookie('message');
+			res.end('cleared the message cookie! was: ' + req.cookies.message);
 		}
 		else {
-			res.cookie('name', 'foo')
-			res.end('name cookie set!');
+			res.cookie('message', 'some message');
+			res.end('message cookie was set!')
 		}
 	})
-	.listen(3000)
+	.listen(3000, () => {
+		console.log('Server is running on port 3000;')
+	})
