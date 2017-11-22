@@ -1,4 +1,5 @@
-const express 	= require('express');
+const express 	 = require('express');
+const bodyParser = require('body-parser');
 
 let app = express();
 
@@ -75,6 +76,8 @@ app.get('/*', (req, res) => {
 
 // ==========   ==========   ==========
 
+/*
+
 // === Parameter-Based Routing ===
 
 let user1 = {
@@ -120,11 +123,39 @@ app.get('/user/:userId', (req, res) => {
 	}
 })
 
+*/
+
+// ==========   ==========   ==========
+
+// === Express Router Object ===
+
+let items = [];
+
+// create a router
+let router = express.Router();
+router.use(bodyParser());
 
 
+//setup the collection routes.
+router.route('/')
+	.get((req, res, next) => {
+		res.send({ status: 'Item found', items: items });
+	})
+	.post((req, res, next) => {
+		items.push(req.body);
 
+		res.send({ status: 'Item added', itemId: items.length- 1 });
+	})
+	.put((req, res, next) => {
+		items = req.body;
+		res.send({ status: 'Items replaced!' });
+	})
+	.delete((req, res, next) => {
+		items = [];
+		res.send({ status: 'Items cleared!' });
+	});
 
-
+app.use('/todo', router)
 
 
 
