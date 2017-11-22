@@ -2,30 +2,37 @@ const express 	= require('express');
 
 let app = express();
 
-// app.all('/', (req, res, next) => {
-// 	res.write('all\n');
-// 	next();
-// });
+/*
 
-// app.get('/', (req, res, next) => {
-// 	res.end('get');
-// });
+app.all('/', (req, res, next) => {
+	res.write('all\n');
+	next();
+});
 
-// app.post('/', (req, res, next) => {
-// 	res.end('post')
-// });
+app.get('/', (req, res, next) => {
+	res.end('get');
+});
 
-// app.put('/', (req, res, next) => {
-// 	res.end('put')
-// });
+app.post('/', (req, res, next) => {
+	res.end('post')
+});
 
-// app.delete('/', (req, res, next) => {
-// 	res.end('delete')
-// });
+app.put('/', (req, res, next) => {
+	res.end('put')
+});
 
+app.delete('/', (req, res, next) => {
+	res.end('delete')
+});
 
+*/
+
+// ==========   ==========   ==========
+
+/*
 
 // === routes object ===
+
 app.route('/')
 	.all((req, res, next) => {
 		res.write('all\n');
@@ -43,6 +50,33 @@ app.route('/')
 	.delete((req, res, next) => {
 		res.end('delete');
 	});
+
+*/
+
+// ==========   ==========   ==========
+
+// === PATH OPTIONS
+
+app.get('/', (req, res) => {
+	res.send('Nothing passed in!');
+});
+
+app.get(/^\/[0-9]+$/, (req, res) => {
+	res.send('passed a number');
+});
+
+app.get('/*', (req, res) => {
+	res.send('not a number!');
+});
+
+
+
+
+
+
+
+
+
 
 
 app.listen(3000, () => {
