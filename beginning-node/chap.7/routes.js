@@ -55,7 +55,9 @@ app.route('/')
 
 // ==========   ==========   ==========
 
-// === PATH OPTIONS
+/*
+
+// === PATH OPTIONS ===
 
 app.get('/', (req, res) => {
 	res.send('Nothing passed in!');
@@ -68,6 +70,56 @@ app.get(/^\/[0-9]+$/, (req, res) => {
 app.get('/*', (req, res) => {
 	res.send('not a number!');
 });
+
+*/
+
+// ==========   ==========   ==========
+
+// === Parameter-Based Routing ===
+
+app.get('/user/:userId', (req, res) => {
+	res.send('user id: ' + req.params['userId'])
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
