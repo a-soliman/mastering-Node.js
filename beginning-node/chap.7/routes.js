@@ -77,8 +77,47 @@ app.get('/*', (req, res) => {
 
 // === Parameter-Based Routing ===
 
+let user1 = {
+	id: '1',
+	name: 'Ahmed',
+	age: 30
+};
+
+let user2 = {
+	id: '2',
+	name: 'Mike',
+	age: 24
+};
+
+let user3 = {
+	id: '3',
+	name: 'John',
+	age: 35
+};
+
+let users = [user1, user2, user3];
+
+let findUser = (userId) => {
+	for( let i = 0; i < users.length; i++ ) {
+		let user = users[i];
+
+		if(user.id == userId) {
+			return user;
+		}
+	}
+	return false;
+};
+
 app.get('/user/:userId', (req, res) => {
-	res.send('user id: ' + req.params['userId'])
+	// res.send('user id: ' + req.params['userId'])
+	let passedId = req.params['userId'];
+	let user = findUser(passedId);
+	if(!user) {
+		res.send('user does not exist!');
+	}
+	else {
+		res.send({'name': user.name})
+	}
 })
 
 
