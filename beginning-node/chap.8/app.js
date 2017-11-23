@@ -11,9 +11,17 @@ MongoClient.connect(mongoUrl, (err, db) => {
 
 	let collection = db.collection('people');
 
+	// Add
 	collection.insert(demoPerson, (err, docs) => {
 		console.log('inserted', docs[0]);
 		console.log(docs.ops[0]);
 		console.log('ID: ', demoPerson._id)
+	});
+
+	// Find
+	collection.find(findKey).toArray((err, results) => {
+		console.log('Found results : ' , results)
 	})
+
+
 })
