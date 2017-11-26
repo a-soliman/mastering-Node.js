@@ -1,0 +1,16 @@
+{
+  "name": "chap.9",
+  "version": "1.0.0",
+  "description": "Front end SPA",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmed Soliman",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1"
+  }
+}
