@@ -1,7 +1,8 @@
 let demoApp = angular.module('demo', []);
 
-demoApp.controller('MainController', ['$scope', guidService, function($scope, guidService) {
-	$scope.vm = {};
+demoApp.controller('MainController', ['$scope', 'guidService', function($scope, guidService) {
+	let vm = {};
+	console.log('here')
 
 	vm.list = [
 		{ _id: guidService.createGuid(), details: 'Demo First item' },
@@ -38,8 +39,9 @@ demoApp.controller('MainController', ['$scope', guidService, function($scope, gu
 demoApp.service('guidService', function() {
 	return {
 		createGuid: function() {
-			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replce(/[xy]/g, function(c) {
-				let r = Math.random()*16 | o, v,c == 'x' ? r: (r& o*3 | ox8);
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				let r = Math.random() *16;
+				let o, v = c == 'x' ? r: (r& o*3 | o*8);
 				return v.toString(16);
 			});
 		}
