@@ -1,24 +1,31 @@
 let demoApp = angular.module('demo', []);
 
-demoApp.controller('MainController', ['$scope', 'guidService', function($scope, guidService) {
+demoApp.controller('MainController', ['$scope', 'todoWebService', function($scope, todoWebService) {
 	let vm = {};
-	console.log('here')
 
-	vm.list = [
-		{ _id: guidService.createGuid(), details: 'Demo First item' },
-		{ _id: guidService.createGuid(), details: 'Demo Second Item' }
-	];
+	vm.list = [];
+
+	// inital load of li9sts
+	todoWebService.getItems().then(function(response) {
+		vm.list = response.data.items;
+	});
 
 	// Ad Item
 	vm.addItem = function() {
-		// TODo send to the server then,
-
-		vm.list.push({
-			_id: guidService.createGuid(),
+		
+		let item = {
 			details: vm.newItemDetails
-		});
+		};
 
 		vm.newItemDetails = '';
+
+		//send the requist to the server
+		todoWebService.addItem(item).then(function(response) {
+			vm.list.push({
+				_id: response.data.itemId,
+				details: item.details
+			});
+		});
 	};
 
 	// Remove Item
@@ -26,6 +33,7 @@ demoApp.controller('MainController', ['$scope', 'guidService', function($scope, 
 		// TODO: Remove from the server then,
 
 		vm.list = vm.list.filter(function(item) { return item._id !== itemToRemove._id; });
+		todoWebService.removeItem(itemToRemove);
 	};
 
 	// For new items
@@ -36,14 +44,17 @@ demoApp.controller('MainController', ['$scope', 'guidService', function($scope, 
 
 }]);
 
-demoApp.service('guidService', function() {
+demoApp.service('todoWebService', ['$http', function ($http) {
+	let root = '/todo';
 	return {
-		createGuid: function() {
-			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-				let r = Math.random() *16;
-				let o, v = c == 'x' ? r: (r& o*3 | o*8);
-				return v.toString(16);
-			});
+		getItems: function() {
+			return $http.get(root);
+		},
+		addItem: function(item) {
+			return $http.post(root, item);
+		},
+		removeItem: function(item) {
+			return $http.delete(root + '/' + item._id)
 		}
-	};
-});
+	}
+}]);
