@@ -12,15 +12,35 @@
 	<script src="./js/script.js"></script>
 </head>
 <body ng-controller="MainController">
-	
-	<div class="form-group">
-		<label> Type your name here:</label>
-		<input class="form-control" type="text" ng-module="vm.name">
-	</div>
-	
-	Hello {{vm.name}}!
-	<br>
-	<button class="btn btn-danger" ng-click="vm.clearName()">Clear Name</button>
+	<div class="container">
+		<h1>List</h1>
 
+		<div class="row">
+			<div ng-repeat="item in vm.list track by item._id" style="padding: 10px;">
+				<button class="btn brn-danger" ng-click="vm.removeItem(item)">x</button>
+				{{item.details}}
+			</div>
+		</div>
+
+		<!-- NEW ITEM ROW -->
+		<div class="row">
+			<form role="form">
+				<div class="form-group">
+					<label for="newItemDetails">New Item Details: </label>
+					<input 
+						type="text" 
+						class="form-control"
+						placeholder="Details of new TODO item"
+						ng-model="vm.newItemDetails">
+				</div>
+
+				<button 
+					class="btn btn-primart" 
+					type="submit"
+					ng-click="vm.addItem()"
+					ng-disabled="!vm.newItemDetails">Add</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
