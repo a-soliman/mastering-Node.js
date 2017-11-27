@@ -1,5 +1,6 @@
 const express 		= require('express');
 const bodyParser 	= require('body-parser');
+const mongodb 		= require('mongodb')
 
 
 
@@ -56,7 +57,7 @@ router.route('/:id')
 		let id = req.params['id'];
 		let lookup = { _id: new mongodb.ObjectID(id) };
 
-		itemsCollection.remove(lookup, function(err, result) {
+		itemsCollection.remove(lookup, function(err, results) {
 			res.send({ status: 'Item Cleared'})
 		})
 	})
