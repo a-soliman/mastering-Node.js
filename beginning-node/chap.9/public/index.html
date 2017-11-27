@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="demo">
 <head>
 	<title>Home Page</title>
 	<link rel="stylesheet" href="./css/bootstrap.css">
-</head>
-<body>
-	<h1>Hello world!</h1>
+	<link rel="stylesheet" href="./css/styles.css">
 
 	<script src="./js/jquery.js"></script>
 	<script src="./js/bootstrap.js"></script>
+	<script src="./js/angular/angular.js"></script>
+	<script src="./js/angular/angular-route.js"></script>
+	<script src="./js/script.js"></script>
+</head>
+<body ng-controller="MainController">
+	
+	<div class="form-group">
+		<label> Type your name here:</label>
+		<input class="form-control" type="text" ng-module="vm.name">
+	</div>
+	
+	Hello {{vm.name}}!
+	<br>
+	<button class="btn btn-danger" ng-click="vm.clearName()">Clear Name</button>
+
 </body>
 </html>
