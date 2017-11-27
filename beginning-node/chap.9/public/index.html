@@ -17,7 +17,7 @@
 
 		<div class="row">
 			<div ng-repeat="item in vm.list track by item._id" style="padding: 10px;">
-				<button class="btn brn-danger" ng-click="vm.removeItem(item)">x</button>
+				<button class="btn btn-danger" ng-click="vm.removeItem(item)">x</button>
 				{{item.details}}
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 				</div>
 
 				<button 
-					class="btn btn-primart" 
+					class="btn btn-primary" 
 					type="submit"
 					ng-click="vm.addItem()"
 					ng-disabled="!vm.newItemDetails">Add</button>
