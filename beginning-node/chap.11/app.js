@@ -1,4 +1,22 @@
-// TIME
+
+// === trace ===
+function foo() {
+	console.trace('trace at foo');
+
+	//excution continues
+	console.log('Stack trace printed');
+};
+
+function bar() {
+	foo();
+};
+
+bar()
+
+
+/*
+
+// === TIME ===
 console.time();
 setTimeout(() => {
 	console.timeEnd()
@@ -13,3 +31,5 @@ console.time('second');
 setTimeout(() => {
 	console.timeEnd('second');
 }, 320);
+
+*/
