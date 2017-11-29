@@ -1,4 +1,19 @@
 
+// == debugger statment ===
+// console.log('Hello');
+// debugger;
+// console.log('world!')
+
+for( let index = 0; index < 10; index++ ) {
+	let message = `loop ${index}`;
+
+	debugger;
+
+	console.log(message);
+};
+
+/*
+
 // === trace ===
 function foo() {
 	console.trace('trace at foo');
@@ -13,6 +28,7 @@ function bar() {
 
 bar()
 
+*/
 
 /*
 
