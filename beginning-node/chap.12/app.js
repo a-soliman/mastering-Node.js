@@ -1,36 +1,10 @@
+const assert = require('assert');
+
+const List = require('./list');
 
 
-function List() {
-	this.items = [];
-};
+let list = new List();
 
-list.prototype.count = function() {
-	return this.items.length;
-};
+console.log('testing list.count');
 
-List.prototype.add = function(item) {
-	if( !item.id ) throw new Error('Item must have id.');
-	this.items.push(item);
-};
-
-List.prototype.remove = function(id) {
-	this.items = this.items.filter((item) { item.id == id});
-};
-
-List.prototype.clear = function () {
-	this.items = [];
-};
-
-List.prototype.getIds = function() {
-	return this.items.map(function(item) {
-		return item.id;
-	});
-};
-
-List.prototype.get = function(id) {
-	return this.items.filter(function(item) {
-		return item.id ==id
-	})[0];
-};
-
-module.exports = List;
+assert.equal(list.count(), 0)
